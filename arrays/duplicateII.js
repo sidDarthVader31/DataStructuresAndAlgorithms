@@ -41,7 +41,16 @@ var containsNearbyAlmostDuplicate = function(nums, indexDiff, valueDiff) {
     }
     return returnValue;
 };
+/**
+ * 
+ * @param {number[]} nums 
+ * @param {number} indexDiff 
+ * @param {number} valueDiff 
+ */
+var containsAlmostDuplicateOptimized = function(nums, indexDiff,valueDiff){
+}
 
 
+console.log(containsNearbyAlmostDuplicate([1,5,9,1,5,9],2,3))
 
-console.log(containsNearbyAlmostDuplicate([4,1,-1,6,5],3,1))
+console.log(containsAlmostDuplicateOptimized([1,5,9,1,5,9],2,3))
