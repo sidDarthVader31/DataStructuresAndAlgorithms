@@ -30,5 +30,12 @@ s and t consist only of lowercase English letters.
  * @return {boolean}
  */
 var isSubsequence = function(s, t) {
-    
+    let spos=0;
+    for(let i=0;i<t.length;i++){
+        if(s.charAt(spos)=== t.charAt(i)){
+            spos++;
+        }
+    }
+    return spos==s.length;
 };
+console.log(isSubsequence("axc","ahbgdc"));
