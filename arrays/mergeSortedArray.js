@@ -35,18 +35,14 @@ var merge = function(nums1, m, nums2, n) {
         j++;
       }
       current++;
-      console.log(`i:${i}::j:${j}::${current}:nums1:::${nums1}`)
     }
-    console.log(`middle:${nums1}`);
     for (let k = i; k < m; k++) {
       nums1[current] = nums1Temp[k];
       current++;
     }
-    console.log(`after nums1:${nums1}`);
     for (let l = j; l < n; l++) {
       nums1[current] = nums2[l];
       current++;
     }
-    console.log(`after nums2`,nums1)
 };
 merge([2,0],1,[1],1)

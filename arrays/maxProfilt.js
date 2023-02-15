@@ -43,21 +43,28 @@ var maxProfit = function(prices) {
  */
 const optimizedPrices=function(prices){
     let maxProfit=0;
-    let left =0;
-    let right= prices.length-1;
+    const length= prices.length
+    let leftMin =prices[0];
+    let leftArray=[];
+    let rightArray=[]
+    let rightMax= prices[prices.length-1];
 
-    while(left<right){
-         console.log(`left:${left}::${prices[left]}`)
-         console.log(`right:${right}::${prices[right]}`);
-         console.log(`maxProfilt:${maxProfit}`);
-        maxProfit=Math.max(maxProfit,(prices[right]-prices[left]));
-        if(prices[left]>=prices[right]){
-            left ++;
-        }
-        else{
-            right--;
-        }
+
+    for(let i=0;i<length;i++){
+            leftMin=Math.min(leftMin,prices[i]);
+            leftArray.push(leftMin)
+    }
+    for(let i=length-1;i>=0;i--){
+        rightMax= Math.max(rightMax,prices[i])
+        rightArray.push(rightMax)
+    }
+    for(let i=0;i<length;i++){
+        console.log("###################")
+        console.log(`maxProfit:${maxProfit}`);
+        console.log(`leftMin:${leftArray[i]}`);
+        console.log(`maxRight:${rightArray[length-i-1]}`)
+        maxProfit= Math.max(maxProfit,(rightArray[length-i-1]-leftArray[i]))
     }
     return maxProfit;
 }
-console.log(`optimized:${optimizedPrices([7,1,5,3,6,4])}`)
+console.log(`optimized:${optimizedPrices([3,2,6,5,0,3])}`)
