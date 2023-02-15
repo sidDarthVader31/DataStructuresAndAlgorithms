@@ -31,10 +31,33 @@ var maxProfit = function(prices) {
 
     for(let i=0;i<prices.length;i++){
         for(let j=i+1;j<prices.length;j++){
-            maxProfit= Math.max(maxProfit,prices[i]-prices[j])
+            maxProfit= Math.max(maxProfit,prices[j]-prices[i])
         }
     }
     return maxProfit;
 };
 
-console.log(maxProfit([7,1,5,3,6,4]))
+/**
+ * 
+ * @param {number[]} prices 
+ */
+const optimizedPrices=function(prices){
+    let maxProfit=0;
+    let left =0;
+    let right= prices.length-1;
+
+    while(left<right){
+         console.log(`left:${left}::${prices[left]}`)
+         console.log(`right:${right}::${prices[right]}`);
+         console.log(`maxProfilt:${maxProfit}`);
+        maxProfit=Math.max(maxProfit,(prices[right]-prices[left]));
+        if(prices[left]>=prices[right]){
+            left ++;
+        }
+        else{
+            right--;
+        }
+    }
+    return maxProfit;
+}
+console.log(`optimized:${optimizedPrices([7,1,5,3,6,4])}`)
