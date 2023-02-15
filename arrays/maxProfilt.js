@@ -27,5 +27,14 @@ Explanation: In this case, no transactions are done and the max profit = 0.
  * @return {number}
  */
 var maxProfit = function(prices) {
-    
+    let maxProfit=0;
+
+    for(let i=0;i<prices.length;i++){
+        for(let j=i+1;j<prices.length;j++){
+            maxProfit= Math.max(maxProfit,prices[i]-prices[j])
+        }
+    }
+    return maxProfit;
 };
+
+console.log(maxProfit([7,1,5,3,6,4]))
