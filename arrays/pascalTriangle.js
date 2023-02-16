@@ -19,5 +19,6 @@ Output: [[1]]
  * @return {number[][]}
  */
 var generate = function(numRows) {
-    let output=[]  
+    let output=[];
+      
 };
