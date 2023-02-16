@@ -19,6 +19,16 @@ Output: [[1]]
  * @return {number[][]}
  */
 var generate = function(numRows) {
-    let output=[];
-      
+    let rowArray=[[1]];
+    for(let i=1;i<numRows;i++){
+        let arr=rowArray[i-1];
+        let tempRow=[1];
+        for(let j=1;j<=i;j++){
+            console.log(`j:${j}:::${arr[j-1]||0}+${arr[j]||0}`)
+            tempRow[j]=(arr[j-1]||0) + (arr[j]||0);
+        }
+        rowArray.push(tempRow)
+    }
+    return rowArray;
 };
+console.log(generate(5));
