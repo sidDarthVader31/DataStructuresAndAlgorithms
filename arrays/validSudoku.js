@@ -39,73 +39,68 @@ Input: board =
 Output: false
 Explanation: Same as Example 1, except with the 5 in the top left corner being modified to 8. Since there are two 8's in the top left 3x3 sub-box, it is invalid.
  */
-/**
- * @param {character[][]} board
- * @return {boolean}
- */
-var isValidSudoku = function (board) {
-  //valid across row
-  //valid across column
-  //valid across inner triange
-  let areRowsValid = true;
-  //check for validity across columns
-  let areColumnsValid = isValidAcrossColumn(board);
-  if(!areColumnsValid){
-    return false;
-  }
-  //check for validity across rows
-  for (let i = 0; i < board.length; i++) {
-    let isValid = isValidAcrossRow(board[i]);
-    if (!isValid) {
-        areRowsValid = false;
-      break;
-    }
-  }
 
-  if(!areRowsValid){
-    return false;
-  }
-
-    //check for validity across 3x3 grids
-};
-
-/**
- *
- * @param {number[]} row
- */
-const isValidAcrossRow = (row) => {
-  let map = {};
-  let isValid = true;
-  for (let i = 0; i < row.length; i++) {
-    if (row[i] != "." && map[`${row[i]}`]) {
-      isValid = false;
-      break;
-    } else if (row[i] != ".") {
-      map[`${row[i]}`] = 1;
-    }
-  }
-  return isValid;
-};
-/**
- *
- * @param {number[][]} column
- */
-const isValidAcrossColumn = (sudoku) => {
-  let isValid = true;
-  for(let i=0;i<9;i++){
-    let map = {};
-    for(let j=0;j<9;j++){
-        if(sudoku[j][i]!='.' && map[`${sudoku[j][i]}`]){
-            isValid=false
-            break;
-        }
-        else if(sudoku[j][i]!="."){
-            map[`${sudoku[j][i]}`]=1;
-        }
-    }
-  }
-  return isValid;
-};
+// A function that returns the result for the entire sudoku board.
+function isValidSudoku(board) {
+    for (let i = 0; i < 9; i++) {
+         for (let j = 0; j < 9; j++) {
+             const value = board[i][j];
+             if (value !== '.') {
+                 if (!validRow(board, i, j, value) || !validColumn(board, i, j, value) | !validBox(board, i, j, value)) {
+                     return false;
+                 }
+             }
+         }
+     }
+     return true;
+ };
+ 
+ //The row function.
+ function validRow(board, row, col, value) {
+     // j represents on column
+     for (let j = 0; j < 8; j++) {
+         // check if the current column matches the passed in column
+         if (j !== col) {
+             if (board[row][j] === value) {
+                 return false; 
+             }
+         }
+     }
+     
+     return true;
+ }
+ 
+ // The column function.
+ function validColumn(board, row, col, value) {
+      // j represents on row
+     for (let i = 0; i < 8; i++) {
+         // check if the current row matches the passed in row
+         if (i !== row) {
+             if (board[i][col] === value) {
+                 return false; 
+             }
+         }
+     }
+     
+     return true;
+ }
+ 
+ //The sub-boxes function.
+ function validBox(board, row, col, value) {
+     const startRow = row - (row % 3), startCol = col - (col % 3);
+     
+     for (let i = startRow; i < startRow + 3; i++) {
+         for (let j = startCol; j < startCol + 3; j++) {
+             if (i !== row && j !== col) {
+                 if (board[i][j] === value) {
+                     return false;
+                 }
+             }
+         }
+     }
+     
+     return true;
+ }
 
 console.log(isValidSudoku([
  ["5","3",".",".","7",".",".",".","."]
