@@ -1,5 +1,3 @@
-
-
 /**
  * Determine if a 9 x 9 Sudoku board is valid. Only the filled cells need to be validated according to the following rules:
 
@@ -45,36 +43,77 @@ Explanation: Same as Example 1, except with the 5 in the top left corner being m
  * @param {character[][]} board
  * @return {boolean}
  */
-var isValidSudoku = function(board) {
-    //valid across row 
-    //valid across column
-    //valid across inner triange
-    let isValidAcrossRow= true;
-    let isValidAcrossColumn=true;
-    for(let i=0;i<board.length;i++){
-        let isValid= isvalidAcrossRowOrColumn(board[i]);
-        if(!isValid){
-            isValidAcrossRow=false;
-            break;
-        }
+var isValidSudoku = function (board) {
+  //valid across row
+  //valid across column
+  //valid across inner triange
+  let areRowsValid = true;
+  //check for validity across columns
+  let areColumnsValid = isValidAcrossColumn(board);
+  if(!areColumnsValid){
+    return false;
+  }
+  //check for validity across rows
+  for (let i = 0; i < board.length; i++) {
+    let isValid = isValidAcrossRow(board[i]);
+    if (!isValid) {
+        areRowsValid = false;
+      break;
     }
+  }
+
+  if(!areRowsValid){
+    return false;
+  }
+
+    //check for validity across 3x3 grids
 };
 
 /**
- * 
- * @param {number[]} row 
+ *
+ * @param {number[]} row
  */
-const isvalidAcrossRowOrColumn=(row)=>{
-    let map={};
-    let isValid= true;
-    for(let i=0;i<row.length;i++){
-        if(row[i]!='.' && map[`${row[i]}`]){
-            isValid=false;
+const isValidAcrossRow = (row) => {
+  let map = {};
+  let isValid = true;
+  for (let i = 0; i < row.length; i++) {
+    if (row[i] != "." && map[`${row[i]}`]) {
+      isValid = false;
+      break;
+    } else if (row[i] != ".") {
+      map[`${row[i]}`] = 1;
+    }
+  }
+  return isValid;
+};
+/**
+ *
+ * @param {number[][]} column
+ */
+const isValidAcrossColumn = (sudoku) => {
+  let isValid = true;
+  for(let i=0;i<9;i++){
+    let map = {};
+    for(let j=0;j<9;j++){
+        if(sudoku[j][i]!='.' && map[`${sudoku[j][i]}`]){
+            isValid=false
             break;
         }
-        else if(row[i]!='.'){
-            map[`${row[i]}`]=true;
+        else if(sudoku[j][i]!="."){
+            map[`${sudoku[j][i]}`]=1;
         }
     }
-    return isValid
-}
+  }
+  return isValid;
+};
+
+console.log(isValidSudoku([
+ ["5","3",".",".","7",".",".",".","."]
+,["6",".",".","1","9","5",".",".","."]
+,[".","9","8",".",".",".",".","6","."]
+,["8",".",".",".","6",".",".",".","3"]
+,["4",".",".","8",".","3",".",".","1"]
+,["7",".",".",".","2",".",".",".","6"]
+,[".","6",".",".",".",".","2","8","."]
+,[".",".",".","4","1","9",".",".","5"]
+,[".",".",".",".","8",".",".","7","9"]]))
