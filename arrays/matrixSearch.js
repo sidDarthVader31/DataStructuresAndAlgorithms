@@ -29,5 +29,55 @@ Output: false
  * @return {boolean}
  */
 var searchMatrix = function(matrix, target) {
-    
+    //get row on which to search 
+    const row = binarySearchMatrix(matrix,target);
+    return binarySearch(matrix[row],target)
 };
+
+
+const binarySearch=(array, target)=>{
+    var startIdx = 0;
+	var endIdx = array.length;
+	while(endIdx > startIdx){
+		var midIdx = Math.floor((startIdx + endIdx)/2);
+		if(target > array[midIdx]){
+			startIdx = midIdx + 1;
+		}
+		else if(target < array[midIdx]){
+			endIdx = midIdx;
+		}
+		else{
+			return true;
+		}
+	}
+	return false;
+}
+const binarySearchMatrix=(matrix, target)=>{
+    let left=0;
+    let right= matrix.length;
+    const length= matrix.length;
+    let position=0;
+    while(left<right){
+        let mid=  parseInt((left+right)/2);
+        console.log(`mid:${mid}`)
+        const midElement= matrix[mid][0];
+        console.log(`midelement:${midElement}`)
+         if(target>= midElement && mid==length-1){
+            position= mid;
+            break;
+         }
+         else if( target>=midElement && target<=matrix[mid+1][0]){
+            position= mid;
+            break;
+         }
+         else if(target<midElement){
+            right=mid;
+         }
+         else {
+            left =mid;
+         }
+    }
+    return position
+}
+
+console.log(searchMatrix([[1],[3],[5]],5))
