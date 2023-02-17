@@ -31,6 +31,7 @@ Output: false
 var searchMatrix = function(matrix, target) {
     //get row on which to search 
     const row = binarySearchMatrix(matrix,target);
+    console.log(`row`,row)
     return binarySearch(matrix[row],target)
 };
 
@@ -56,17 +57,19 @@ const binarySearchMatrix=(matrix, target)=>{
     let left=0;
     let right= matrix.length;
     const length= matrix.length;
+    console.log(`length:${length}`)
     let position=0;
     while(left<right){
-        let mid=  parseInt((left+right)/2);
+        let mid=  Math.floor((left+right)/2);
         console.log(`mid:${mid}`)
         const midElement= matrix[mid][0];
         console.log(`midelement:${midElement}`)
          if(target>= midElement && mid==length-1){
+            console.log(`last element`)
             position= mid;
             break;
          }
-         else if( target>=midElement && target<=matrix[mid+1][0]){
+         else if( target>=midElement && target<matrix[mid+1][0]){
             position= mid;
             break;
          }
