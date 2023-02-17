@@ -46,5 +46,35 @@ Explanation: Same as Example 1, except with the 5 in the top left corner being m
  * @return {boolean}
  */
 var isValidSudoku = function(board) {
-    
+    //valid across row 
+    //valid across column
+    //valid across inner triange
+    let isValidAcrossRow= true;
+    let isValidAcrossColumn=true;
+    for(let i=0;i<board.length;i++){
+        let isValid= isvalidAcrossRowOrColumn(board[i]);
+        if(!isValid){
+            isValidAcrossRow=false;
+            break;
+        }
+    }
 };
+
+/**
+ * 
+ * @param {number[]} row 
+ */
+const isvalidAcrossRowOrColumn=(row)=>{
+    let map={};
+    let isValid= true;
+    for(let i=0;i<row.length;i++){
+        if(row[i]!='.' && map[`${row[i]}`]){
+            isValid=false;
+            break;
+        }
+        else if(row[i]!='.'){
+            map[`${row[i]}`]=true;
+        }
+    }
+    return isValid
+}
