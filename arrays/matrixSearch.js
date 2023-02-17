@@ -57,15 +57,11 @@ const binarySearchMatrix=(matrix, target)=>{
     let left=0;
     let right= matrix.length;
     const length= matrix.length;
-    console.log(`length:${length}`)
     let position=0;
     while(left<right){
         let mid=  Math.floor((left+right)/2);
-        console.log(`mid:${mid}`)
         const midElement= matrix[mid][0];
-        console.log(`midelement:${midElement}`)
          if(target>= midElement && mid==length-1){
-            console.log(`last element`)
             position= mid;
             break;
          }
