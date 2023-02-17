@@ -31,11 +31,15 @@ Output: false
 var searchMatrix = function(matrix, target) {
     //get row on which to search 
     const row = binarySearchMatrix(matrix,target);
-    console.log(`row`,row)
     return binarySearch(matrix[row],target)
 };
 
-
+/**
+ * function to perform binary search on an array
+ * @param {number[]} array 
+ * @param {number} target 
+ * @returns boolean
+ */
 const binarySearch=(array, target)=>{
     var startIdx = 0;
 	var endIdx = array.length;
@@ -53,6 +57,13 @@ const binarySearch=(array, target)=>{
 	}
 	return false;
 }
+
+/**
+ * function performs a binary search on an 2D array to find out on which row the target value may be present
+ * @param {number[][]} matrix 
+ * @param {number} target 
+ * @returns 
+ */
 const binarySearchMatrix=(matrix, target)=>{
     let left=0;
     let right= matrix.length;
