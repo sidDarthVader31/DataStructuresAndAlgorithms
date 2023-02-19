@@ -23,23 +23,24 @@ Output: -1
  */
 var firstUniqChar = function (s) {
   let map = {};
-  let pos=-1;
+  let pos = -1;
   for (let i = 0; i < s.length; i++) {
     let ch = s.charAt(i);
     if (!map[`${ch}`]) {
-      map[`${ch}`] = {index:i,value:1}
+      map[`${ch}`] = { index: i, value: 1 };
       pos = i;
     } else {
       map[`${ch}`].value = map[`${ch}`].value + 1;
       pos = -1;
     }
   }
-  for(const key in map){
-    if( map[key].value== 1){
-        pos=map[key].index;
-        break;
+  for (const key in map) {
+    if (map[key].value == 1) {
+      pos = map[key].index;
+      break;
     }
   }
   return pos;
 };
-console.log(firstUniqChar("loveleetcode"));
+
+console.log(firstUniqCharOptimized("loveleetcode"));
