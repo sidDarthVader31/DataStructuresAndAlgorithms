@@ -25,7 +25,6 @@ The result of the merge is [1,2,2,3,5,6] with the underlined elements coming fro
 var merge = function(nums1, m, nums2, n) {
     let current = 0, i = 0,j = 0;
      const nums1Temp = Array.from(nums1, x => x);
-     console.log(`nums!TEMP:${nums1Temp}`)
     while (i < m-1 && j < n-1) {
       if (nums1Temp[i] < nums2[j]) {
         nums1[current] = nums1[i];
