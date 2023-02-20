@@ -22,26 +22,28 @@ The result of the merge is [1,2,2,3,5,6] with the underlined elements coming fro
  * @param {number} n
  * @return {void} Do not return anything, modify nums1 in-place instead.
  */
-var merge = function(nums1, m, nums2, n) {
-    let current = 0, i = 0,j = 0;
-     const nums1Temp = Array.from(nums1, x => x);
-    while (i < m-1 && j < n-1) {
-      if (nums1Temp[i] < nums2[j]) {
-        nums1[current] = nums1[i];
-        i++;
-      } else {
-        nums1[current] = nums2[j];
-        j++;
-      }
-      current++;
+var merge = function (nums1, m, nums2, n) {
+  let current = 0,
+    i = 0,
+    j = 0;
+  const nums1Temp = Array.from(nums1, (x) => x);
+  while (i < m - 1 && j < n - 1) {
+    if (nums1Temp[i] < nums2[j]) {
+      nums1[current] = nums1[i];
+      i++;
+    } else {
+      nums1[current] = nums2[j];
+      j++;
     }
-    for (let k = i; k < m; k++) {
-      nums1[current] = nums1Temp[k];
-      current++;
-    }
-    for (let l = j; l < n; l++) {
-      nums1[current] = nums2[l];
-      current++;
-    }
+    current++;
+  }
+  for (let k = i; k < m; k++) {
+    nums1[current] = nums1Temp[k];
+    current++;
+  }
+  for (let l = j; l < n; l++) {
+    nums1[current] = nums2[l];
+    current++;
+  }
 };
-merge([2,0],1,[1],1)
+merge([2, 0], 1, [1], 1);
