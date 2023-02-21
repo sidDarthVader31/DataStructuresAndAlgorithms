@@ -41,10 +41,680 @@ Constraints:
  * @param {function} isBadVersion()
  * @return {function}
  */
-var solution = function (isBadVersion) {
-  /**
-   * @param {integer} n Total versions
-   * @return {integer} The first bad version
-   */
-  return function (n) {};
+var solution = function(isBadVersion) {
+                    /**
+                     * @param {integer} n Total versions
+                     * @return {integer} The first bad version
+                     */
+                    return function(n) {
+                        for(let i=1;i<=n;i++){
+                            let flag =isBadVersion(i);
+                            if(flag){
+                                return i;
+                            }
+                        }
+                    };
+                };var solution = function(isBadVersion) {
+                /**
+                 * @param {integer} n Total versions
+                 * @return {integer} The first bad version
+                 */
+                return function(n) {
+                    for(let i=1;i<=n;i++){
+                        let flag =isBadVersion(i);
+                        if(flag){
+                            return i;
+                        }
+                    }
+                };
+            };var solution = function(isBadVersion) {
+                /**
+                 * @param {integer} n Total versions
+                 * @return {integer} The first bad version
+                 */
+                return function(n) {
+                    for(let i=1;i<=n;i++){
+                        let flag =isBadVersion(i);
+                        if(flag){
+                            return i;
+                        }
+                    }
+                };
+            };var solution = function(isBadVersion) {
+            /**
+             * @param {integer} n Total versions
+             * @return {integer} The first bad version
+             */
+            return function(n) {
+                for(let i=1;i<=n;i++){
+                    let flag =isBadVersion(i);
+                    if(flag){
+                        return i;
+                    }
+                }
+            };
+        };var solution = function(isBadVersion) {
+                        /**
+                         * @param {integer} n Total versions
+                         * @return {integer} The first bad version
+                         */
+                        return function(n) {
+                            for(let i=1;i<=n;i++){
+                                let flag =isBadVersion(i);
+                                if(flag){
+                                    return i;
+                                }
+                            }
+                        };
+                    };var solution = function(isBadVersion) {
+                    /**
+                     * @param {integer} n Total versions
+                     * @return {integer} The first bad version
+                     */
+                    return function(n) {
+                        for(let i=1;i<=n;i++){
+                            let flag =isBadVersion(i);
+                            if(flag){
+                                return i;
+                            }
+                        }
+                    };
+                };var solution = function(isBadVersion) {
+                    /**
+                     * @param {integer} n Total versions
+                     * @return {integer} The first bad version
+                     */
+                    return function(n) {
+                        for(let i=1;i<=n;i++){
+                            let flag =isBadVersion(i);
+                            if(flag){
+                                return i;
+                            }
+                        }
+                    };
+                };var solution = function(isBadVersion) {
+                /**
+                 * @param {integer} n Total versions
+                 * @return {integer} The first bad version
+                 */
+                return function(n) {
+                    for(let i=1;i<=n;i++){
+                        let flag =isBadVersion(i);
+                        if(flag){
+                            return i;
+                        }
+                    }
+                };
+            };var solution = function(isBadVersion) {
+                    /**
+                     * @param {integer} n Total versions
+                     * @return {integer} The first bad version
+                     */
+                    return function(n) {
+                        for(let i=1;i<=n;i++){
+                            let flag =isBadVersion(i);
+                            if(flag){
+                                return i;
+                            }
+                        }
+                    };
+                };var solution = function(isBadVersion) {
+                /**
+                 * @param {integer} n Total versions
+                 * @return {integer} The first bad version
+                 */
+                return function(n) {
+                    for(let i=1;i<=n;i++){
+                        let flag =isBadVersion(i);
+                        if(flag){
+                            return i;
+                        }
+                    }
+                };
+            };var solution = function(isBadVersion) {
+                            /**
+                             * @param {integer} n Total versions
+                             * @return {integer} The first bad version
+                             */
+                            return function(n) {
+                                for(let i=1;i<=n;i++){
+                                    let flag =isBadVersion(i);
+                                    if(flag){
+                                        return i;
+                                    }
+                                }
+                            };
+                        };var solution = function(isBadVersion) {
+                        /**
+                         * @param {integer} n Total versions
+                         * @return {integer} The first bad version
+                         */
+                        return function(n) {
+                            for(let i=1;i<=n;i++){
+                                let flag =isBadVersion(i);
+                                if(flag){
+                                    return i;
+                                }
+                            }
+                        };
+                    };var solution = function(isBadVersion) {
+                        /**
+                         * @param {integer} n Total versions
+                         * @return {integer} The first bad version
+                         */
+                        return function(n) {
+                            for(let i=1;i<=n;i++){
+                                let flag =isBadVersion(i);
+                                if(flag){
+                                    return i;
+                                }
+                            }
+                        };
+                    };var solution = function(isBadVersion) {
+                    /**
+                     * @param {integer} n Total versions
+                     * @return {integer} The first bad version
+                     */
+                    return function(n) {
+                        for(let i=1;i<=n;i++){
+                            let flag =isBadVersion(i);
+                            if(flag){
+                                return i;
+                            }
+                        }
+                    };
+                };var solution = function(isBadVersion) {
+                        /**
+                         * @param {integer} n Total versions
+                         * @return {integer} The first bad version
+                         */
+                        return function(n) {
+                            for(let i=1;i<=n;i++){
+                                let flag =isBadVersion(i);
+                                if(flag){
+                                    return i;
+                                }
+                            }
+                        };
+                    };var solution = function(isBadVersion) {
+                    /**
+                     * @param {integer} n Total versions
+                     * @return {integer} The first bad version
+                     */
+                    return function(n) {
+                        for(let i=1;i<=n;i++){
+                            let flag =isBadVersion(i);
+                            if(flag){
+                                return i;
+                            }
+                        }
+                    };
+                };var solution = function(isBadVersion) {
+                    /**
+                     * @param {integer} n Total versions
+                     * @return {integer} The first bad version
+                     */
+                    return function(n) {
+                        for(let i=1;i<=n;i++){
+                            let flag =isBadVersion(i);
+                            if(flag){
+                                return i;
+                            }
+                        }
+                    };
+                };var solution = function(isBadVersion) {
+                /**
+                 * @param {integer} n Total versions
+                 * @return {integer} The first bad version
+                 */
+                return function(n) {
+                    for(let i=1;i<=n;i++){
+                        let flag =isBadVersion(i);
+                        if(flag){
+                            return i;
+                        }
+                    }
+                };
+            };var solution = function(isBadVersion) {
+            /**
+             * @param {integer} n Total versions
+             * @return {integer} The first bad version
+             */
+            return function(n) {
+                for(let i=1;i<=n;i++){
+                    let flag =isBadVersion(i);
+                    if(flag){
+                        return i;
+                    }
+                }
+            };
+        };var solution = function(isBadVersion) {
+                        /**
+                         * @param {integer} n Total versions
+                         * @return {integer} The first bad version
+                         */
+                        return function(n) {
+                            for(let i=1;i<=n;i++){
+                                let flag =isBadVersion(i);
+                                if(flag){
+                                    return i;
+                                }
+                            }
+                        };
+                    };var solution = function(isBadVersion) {
+                    /**
+                     * @param {integer} n Total versions
+                     * @return {integer} The first bad version
+                     */
+                    return function(n) {
+                        for(let i=1;i<=n;i++){
+                            let flag =isBadVersion(i);
+                            if(flag){
+                                return i;
+                            }
+                        }
+                    };
+                };var solution = function(isBadVersion) {
+                    /**
+                     * @param {integer} n Total versions
+                     * @return {integer} The first bad version
+                     */
+                    return function(n) {
+                        for(let i=1;i<=n;i++){
+                            let flag =isBadVersion(i);
+                            if(flag){
+                                return i;
+                            }
+                        }
+                    };
+                };var solution = function(isBadVersion) {
+                /**
+                 * @param {integer} n Total versions
+                 * @return {integer} The first bad version
+                 */
+                return function(n) {
+                    for(let i=1;i<=n;i++){
+                        let flag =isBadVersion(i);
+                        if(flag){
+                            return i;
+                        }
+                    }
+                };
+            };var solution = function(isBadVersion) {
+                    /**
+                     * @param {integer} n Total versions
+                     * @return {integer} The first bad version
+                     */
+                    return function(n) {
+                        for(let i=1;i<=n;i++){
+                            let flag =isBadVersion(i);
+                            if(flag){
+                                return i;
+                            }
+                        }
+                    };
+                };var solution = function(isBadVersion) {
+                /**
+                 * @param {integer} n Total versions
+                 * @return {integer} The first bad version
+                 */
+                return function(n) {
+                    for(let i=1;i<=n;i++){
+                        let flag =isBadVersion(i);
+                        if(flag){
+                            return i;
+                        }
+                    }
+                };
+            };var solution = function(isBadVersion) {
+                /**
+                 * @param {integer} n Total versions
+                 * @return {integer} The first bad version
+                 */
+                return function(n) {
+                    for(let i=1;i<=n;i++){
+                        let flag =isBadVersion(i);
+                        if(flag){
+                            return i;
+                        }
+                    }
+                };
+            };var solution = function(isBadVersion) {
+            /**
+             * @param {integer} n Total versions
+             * @return {integer} The first bad version
+             */
+            return function(n) {
+                for(let i=1;i<=n;i++){
+                    let flag =isBadVersion(i);
+                    if(flag){
+                        return i;
+                    }
+                }
+            };
+        };var solution = function(isBadVersion) {
+        /**
+         * @param {integer} n Total versions
+         * @return {integer} The first bad version
+         */
+        return function(n) {
+            for(let i=1;i<=n;i++){
+                let flag =isBadVersion(i);
+                if(flag){
+                    return i;
+                }
+            }
+        };
+    };var solution = function(isBadVersion) {
+                    /**
+                     * @param {integer} n Total versions
+                     * @return {integer} The first bad version
+                     */
+                    return function(n) {
+                        for(let i=1;i<=n;i++){
+                            let flag =isBadVersion(i);
+                            if(flag){
+                                return i;
+                            }
+                        }
+                    };
+                };var solution = function(isBadVersion) {
+                /**
+                 * @param {integer} n Total versions
+                 * @return {integer} The first bad version
+                 */
+                return function(n) {
+                    for(let i=1;i<=n;i++){
+                        let flag =isBadVersion(i);
+                        if(flag){
+                            return i;
+                        }
+                    }
+                };
+            };var solution = function(isBadVersion) {
+                /**
+                 * @param {integer} n Total versions
+                 * @return {integer} The first bad version
+                 */
+                return function(n) {
+                    for(let i=1;i<=n;i++){
+                        let flag =isBadVersion(i);
+                        if(flag){
+                            return i;
+                        }
+                    }
+                };
+            };var solution = function(isBadVersion) {
+            /**
+             * @param {integer} n Total versions
+             * @return {integer} The first bad version
+             */
+            return function(n) {
+                for(let i=1;i<=n;i++){
+                    let flag =isBadVersion(i);
+                    if(flag){
+                        return i;
+                    }
+                }
+            };
+        };var solution = function(isBadVersion) {
+                /**
+                 * @param {integer} n Total versions
+                 * @return {integer} The first bad version
+                 */
+                return function(n) {
+                    for(let i=1;i<=n;i++){
+                        let flag =isBadVersion(i);
+                        if(flag){
+                            return i;
+                        }
+                    }
+                };
+            };var solution = function(isBadVersion) {
+            /**
+             * @param {integer} n Total versions
+             * @return {integer} The first bad version
+             */
+            return function(n) {
+                for(let i=1;i<=n;i++){
+                    let flag =isBadVersion(i);
+                    if(flag){
+                        return i;
+                    }
+                }
+            };
+        };var solution = function(isBadVersion) {
+                        /**
+                         * @param {integer} n Total versions
+                         * @return {integer} The first bad version
+                         */
+                        return function(n) {
+                            for(let i=1;i<=n;i++){
+                                let flag =isBadVersion(i);
+                                if(flag){
+                                    return i;
+                                }
+                            }
+                        };
+                    };var solution = function(isBadVersion) {
+                    /**
+                     * @param {integer} n Total versions
+                     * @return {integer} The first bad version
+                     */
+                    return function(n) {
+                        for(let i=1;i<=n;i++){
+                            let flag =isBadVersion(i);
+                            if(flag){
+                                return i;
+                            }
+                        }
+                    };
+                };var solution = function(isBadVersion) {
+                    /**
+                     * @param {integer} n Total versions
+                     * @return {integer} The first bad version
+                     */
+                    return function(n) {
+                        for(let i=1;i<=n;i++){
+                            let flag =isBadVersion(i);
+                            if(flag){
+                                return i;
+                            }
+                        }
+                    };
+                };var solution = function(isBadVersion) {
+                /**
+                 * @param {integer} n Total versions
+                 * @return {integer} The first bad version
+                 */
+                return function(n) {
+                    for(let i=1;i<=n;i++){
+                        let flag =isBadVersion(i);
+                        if(flag){
+                            return i;
+                        }
+                    }
+                };
+            };var solution = function(isBadVersion) {
+                    /**
+                     * @param {integer} n Total versions
+                     * @return {integer} The first bad version
+                     */
+                    return function(n) {
+                        for(let i=1;i<=n;i++){
+                            let flag =isBadVersion(i);
+                            if(flag){
+                                return i;
+                            }
+                        }
+                    };
+                };var solution = function(isBadVersion) {
+                /**
+                 * @param {integer} n Total versions
+                 * @return {integer} The first bad version
+                 */
+                return function(n) {
+                    for(let i=1;i<=n;i++){
+                        let flag =isBadVersion(i);
+                        if(flag){
+                            return i;
+                        }
+                    }
+                };
+            };var solution = function(isBadVersion) {
+                /**
+                 * @param {integer} n Total versions
+                 * @return {integer} The first bad version
+                 */
+                return function(n) {
+                    for(let i=1;i<=n;i++){
+                        let flag =isBadVersion(i);
+                        if(flag){
+                            return i;
+                        }
+                    }
+                };
+            };var solution = function(isBadVersion) {
+            /**
+             * @param {integer} n Total versions
+             * @return {integer} The first bad version
+             */
+            return function(n) {
+                for(let i=1;i<=n;i++){
+                    let flag =isBadVersion(i);
+                    if(flag){
+                        return i;
+                    }
+                }
+            };
+        };var solution = function(isBadVersion) {
+        /**
+         * @param {integer} n Total versions
+         * @return {integer} The first bad version
+         */
+        return function(n) {
+            for(let i=1;i<=n;i++){
+                let flag =isBadVersion(i);
+                if(flag){
+                    return i;
+                }
+            }
+        };
+    };var solution = function(isBadVersion) {
+                    /**
+                     * @param {integer} n Total versions
+                     * @return {integer} The first bad version
+                     */
+                    return function(n) {
+                        for(let i=1;i<=n;i++){
+                            let flag =isBadVersion(i);
+                            if(flag){
+                                return i;
+                            }
+                        }
+                    };
+                };var solution = function(isBadVersion) {
+                /**
+                 * @param {integer} n Total versions
+                 * @return {integer} The first bad version
+                 */
+                return function(n) {
+                    for(let i=1;i<=n;i++){
+                        let flag =isBadVersion(i);
+                        if(flag){
+                            return i;
+                        }
+                    }
+                };
+            };var solution = function(isBadVersion) {
+                /**
+                 * @param {integer} n Total versions
+                 * @return {integer} The first bad version
+                 */
+                return function(n) {
+                    for(let i=1;i<=n;i++){
+                        let flag =isBadVersion(i);
+                        if(flag){
+                            return i;
+                        }
+                    }
+                };
+            };var solution = function(isBadVersion) {
+            /**
+             * @param {integer} n Total versions
+             * @return {integer} The first bad version
+             */
+            return function(n) {
+                for(let i=1;i<=n;i++){
+                    let flag =isBadVersion(i);
+                    if(flag){
+                        return i;
+                    }
+                }
+            };
+        };var solution = function(isBadVersion) {
+                /**
+                 * @param {integer} n Total versions
+                 * @return {integer} The first bad version
+                 */
+                return function(n) {
+                    for(let i=1;i<=n;i++){
+                        let flag =isBadVersion(i);
+                        if(flag){
+                            return i;
+                        }
+                    }
+                };
+            };var solution = function(isBadVersion) {
+            /**
+             * @param {integer} n Total versions
+             * @return {integer} The first bad version
+             */
+            return function(n) {
+                for(let i=1;i<=n;i++){
+                    let flag =isBadVersion(i);
+                    if(flag){
+                        return i;
+                    }
+                }
+            };
+        };var solution = function(isBadVersion) {
+            /**
+             * @param {integer} n Total versions
+             * @return {integer} The first bad version
+             */
+            return function(n) {
+                for(let i=1;i<=n;i++){
+                    let flag =isBadVersion(i);
+                    if(flag){
+                        return i;
+                    }
+                }
+            };
+        };var solution = function(isBadVersion) {
+        /**
+         * @param {integer} n Total versions
+         * @return {integer} The first bad version
+         */
+        return function(n) {
+            for(let i=1;i<=n;i++){
+                let flag =isBadVersion(i);
+                if(flag){
+                    return i;
+                }
+            }
+        };
+    };var solution = function(isBadVersion) {
+    /**
+     * @param {integer} n Total versions
+     * @return {integer} The first bad version
+     */
+    return function(n) {
+        for(let i=1;i<=n;i++){
+            let flag =isBadVersion(i);
+            if(flag){
+                return i;
+            }
+        }
+    };
 };
