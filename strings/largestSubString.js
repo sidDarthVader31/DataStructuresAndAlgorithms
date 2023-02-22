@@ -41,5 +41,5 @@ const largestSubstring = (s) => {
     return finalSub.length> subString.length? finalSub: subString;
   };
   
-  console.log(`ans`,largestSubstring("pwwkew"));
+  console.log(largestSubstring("pwwkew"));
   
