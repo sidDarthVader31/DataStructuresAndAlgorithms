@@ -22,23 +22,20 @@ Notice that the answer must be a substring, "pwke" is a subsequence and not a su
  * **/
 const largestSubstring = (s) => {
   let map = {};
-  let subString = "";
-  let finalSub = "";
+  let count = 0;
+  let maxCount = 0;
   for (let i = 0; i < s.length; i++) {
     let ch = s.charAt(i);
     if (map[ch] == undefined || map[ch] == null) {
       map[ch] = i;
-      subString = subString + ch;
+      count = count + 1;
     } else {
-      if (subString.length > finalSub.length) {
-        finalSub = subString;
-      }
-      subString = "";
+      maxCount = Math.max(count, maxCount);
       i = map[ch];
       map = {};
     }
   }
-  return finalSub.length > subString.length ? finalSub : subString;
+  return Math.max(maxCount, count);
 };
 
 console.log(largestSubstring("abcabcbb"));
