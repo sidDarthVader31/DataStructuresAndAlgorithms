@@ -52,38 +52,20 @@ const optimizedLargestSubstring = (s) => {
   let currentLength = 0;
   let right = 0;
   let left = 0;
-  let i = 0;
-  let subString = "";
-  let finalString = "";
   while (left < length && right < length) {
     //while left end is less than the length of the string
     let ch = s.charAt(right);
-    console.log(`#######`);
-    console.log(` right is ${right}, left is :${left} ch:${ch}, map is `, map);
     if (map[ch] == undefined) {
       map[ch] = right;
       currentLength = right - left + 1;
       right++;
-      subString = subString + ch;
     } else if (map[ch] != undefined) {
-      console.log(
-        `else called for left:${left}, right:${right}, i=${i} and substring=${subString} , maxLength is ${maxLength} , current Length is ${currentLength}`
-      );
       left = map[ch] + 1;
       map = {};
       maxLength = Math.max(maxLength, currentLength);
-      if (subString.length > finalString.length) {
-        finalString = subString;
-      }
       currentLength = 0;
-      subString = "";
-
-      console.log(`now left is ${left}, and i is ${i}`);
     }
   }
-  console.log(
-    ` final string is ${finalString} ::  and subString is :${subString}`
-  );
   return Math.max(maxLength, currentLength);
 };
 console.log(optimizedLargestSubstring("dvdf"));
