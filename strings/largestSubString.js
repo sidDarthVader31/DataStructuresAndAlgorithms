@@ -30,14 +30,9 @@ const largestSubstring = (s) => {
         map[ch] = 1;
         subString = subString + ch;
       } else {
-        console.log(`else for :::${i}:${ch}`);
-        console.log(`inital final sub:${finalSub}`);
-        console.log(`subString`, subString);
         if (subString.length > finalSub.length) {
-          console.log(`value is greater than`);
           finalSub = subString;
         }
-        console.log(`final sub`, finalSub);
         subString = ch;
         map={}
         map[ch]=1;
