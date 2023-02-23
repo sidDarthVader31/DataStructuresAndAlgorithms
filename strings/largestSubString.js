@@ -52,26 +52,17 @@ const optimizedLargestSubstring = (s) => {
   let currentLength = 0;
   let right = 0;
   let left = 0;
-  while (right < length && left < length) {
-    //while left end is less than the length of the string
+
+  for (right = 0; right < length; right++) {
     let ch = s.charAt(right);
-    console.log(`left :${left},rightL:${right}, ch = ${ch}, map = `, map);
-    console.log(`current length:${currentLength}, maxLength:${maxLength}`);
-    if (map[ch] >= left) {
-      console.log(`inside if for ${right}`);
-      left = map[ch] + 1;
-      maxLength = Math.max(maxLength, currentLength);
-    } else {
-      console.log(`inside else for `);
-      map[ch] = right;
-      currentLength = right - left + 1;
-      //maxLength = Math.max(maxLength, currentLength);
-      right++;
+    let previousSeenChar = map[ch];
+    if (previousSeenChar >= left) {
+      left = left + previousSeenChar + 1;
     }
+    map[ch] = right;
+    //currentLength = right - left + 1;
+    maxLength = Math.max(maxLength, right - left + 1);
   }
-  console.log(`left:${left}, right:${right}`);
-  console.log(`max leength:${maxLength}`);
-  console.log(`current length:${currentLength}`);
-  return Math.max(maxLength, currentLength);
+  return maxLength;
 };
-console.log(optimizedLargestSubstring("abcabcbb"));
+console.log(optimizedLargestSubstring("tmmzuxt"));
