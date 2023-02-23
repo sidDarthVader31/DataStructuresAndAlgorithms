@@ -43,26 +43,22 @@ const largestSubstring = (s) => {
  * @returns {number}
  **/
 const optimizedLargestSubstring = (s) => {
-  const length = s.length;
-  if (length == 1) {
-    return length;
-  }
-  let map = {};
-  let maxLength = 0;
-  let currentLength = 0;
-  let right = 0;
+  let set = new Set();
   let left = 0;
+  let maxSize = 0;
 
-  for (right = 0; right < length; right++) {
-    let ch = s.charAt(right);
-    let previousSeenChar = map[ch];
-    if (previousSeenChar >= left) {
-      left = left + previousSeenChar + 1;
-    }
-    map[ch] = right;
-    //currentLength = right - left + 1;
-    maxLength = Math.max(maxLength, right - left + 1);
+  if(s.length<1){
+    return s.length;
   }
-  return maxLength;
+
+  for (let i = 0; i < s.length; i++) {
+
+      while (set.has(s[i])) {
+          set.delete(s[left])
+          left++;
+      }
+      set.add(s[i]);
+      maxSize = Math.max(maxSize, i - left + 1)
+  }
 };
 console.log(optimizedLargestSubstring("tmmzuxt"));
