@@ -9,13 +9,12 @@ function reverse(head: ListNode) {
     return head;
   }
   let currentNode = new ListNode(head.value, head.next);
-  let previous = new ListNode(null, null);
-  let i=0;
-  while (Object.keys(currentNode).length>0) {
+  let previous: ListNode | null = null;
+  while (Object.keys(currentNode).length > 0) {
     let nextNode = currentNode.next;
-    currentNode.next=previous;
-    previous = {...currentNode};
-    currentNode = {...nextNode} as ListNode;
+    currentNode.next = previous;
+    previous = { ...currentNode } as ListNode;
+    currentNode = { ...nextNode } as ListNode;
   }
   return previous;
 }
