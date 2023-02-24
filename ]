@@ -26,10 +26,11 @@ Since an empty string reads the same forward and backward, it is a palindrome.
  */
 var isPalindrome = function (s) {
   let left = 0;
+  let right = s.length - 1;
   let pos = 0;
   let removedString = "";
   //remove non alphanumeric characters
-  for (let i = 0; i <= s.length - 1; i++) {
+  for (let i = 0; i <= right; i++) {
     let code = s.charCodeAt(i);
     if (
       !(code > 47 && code < 58) && // numeric (0-9)
@@ -37,20 +38,15 @@ var isPalindrome = function (s) {
       !(code > 96 && code < 123)
     ) {
       // lower alpha (a-z)
+      console.log(`inside if for i = ${i}:: code:${code}`);
       removedString = removedString + s.substring(pos, i);
       pos = i + 1;
     }
   }
-  removedString = removedString + s.substring(pos, s.length);
-  let right = removedString.length - 1;
-  removedString = removedString.toLowerCase();
-  while (left <= right) {
-    if (removedString.charAt(left) != removedString.charAt(right)) {
-      return false;
-    }
-    left++;
-    right--;
-  }
-  return true;
+  removedString = removedString + s.substring(pos, i + 1);
+  //while(left<=right){
+  // if(s.charAt( left))
+  //}
+  return removedString;
 };
-console.log(isPalindrome("race a car"));
+console.log(isPalindrome("a man with a plan"));
