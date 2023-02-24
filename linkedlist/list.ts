@@ -5,8 +5,8 @@
 
 class ListNode {
   value: any;
-  next: ListNode;
-  constructor(value: any, next?: ListNode) {
+  next: ListNode | null;
+  constructor(value: any, next: ListNode) {
     this.value = value;
     this.next = next;
   }
