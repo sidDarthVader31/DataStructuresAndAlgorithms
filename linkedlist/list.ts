@@ -6,20 +6,8 @@
 class ListNode {
   value: any;
   next: ListNode | null;
-  constructor(next: ListNode) {
-    this.value = next.getValue();
-    this.next = next;
-  }
-  getValue() {
-    return this.value;
-  }
-  getNode() {
-    return this.next;
-  }
-  setValue(value: any) {
+  constructor(value: any, next: ListNode | null) {
     this.value = value;
-  }
-  setNext(next: ListNode) {
     this.next = next;
   }
 }
