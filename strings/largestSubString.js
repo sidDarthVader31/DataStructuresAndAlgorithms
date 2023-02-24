@@ -52,7 +52,6 @@ const optimizedLargestSubstring = (s) => {
   }
 
   for (let i = 0; i < s.length; i++) {
-
       while (set.has(s[i])) {
           set.delete(s[left])
           left++;
