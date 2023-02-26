@@ -8,7 +8,9 @@ function reverse(head: ListNode) {
   if (!head.next) {
     return head;
   }
+  //  set head to curretn node
   let currentNode = new ListNode(head.value, head.next);
+  //set previous node to null
   let previous: ListNode | null = null;
   while (Object.keys(currentNode).length > 0) {
     let nextNode = currentNode.next;
