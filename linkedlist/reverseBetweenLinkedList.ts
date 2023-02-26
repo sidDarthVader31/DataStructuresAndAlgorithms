@@ -16,39 +16,40 @@ Output: [5]
 import ListNode from "./list";
 function reverseBetween(head: ListNode, left: number, right: number): ListNode {
   let current: ListNode = head;
-  let first: ListNode = head;
   let previous: ListNode | null = null;
   let previousInside: ListNode | null = null;
   let nextInside: ListNode | null = null;
   let counter = 1;
-  while (Object.keys(current).length > 0) {
+  while (counter <= right) {
     let next = current.next;
     if (counter === left) {
-      previousInside = { ...previous } as unknown as ListNode;
+      previousInside = previous as unknown as ListNode;
     }
     previous = { ...current } as unknown as ListNode;
     current = { ...next } as unknown as ListNode;
     if (counter === right) {
-      nextInside = { ...next } as unknown as ListNode;
+      nextInside = next as unknown as ListNode;
     }
     counter++;
   }
-  previous = null;
-  current = head;
-  counter = 1;
-  while (Object.keys(current).length > 0) {
-    let next = current.next;
-    if (counter == left) {
-      current.next = nextInside;
-    } else if (counter == right) {
-      current.next = previousInside;
-    } else if (counter > left && counter < right) {
-      current.next = previous;
-    }
-    previous = { ...current } as ListNode;
-    current = { ...next } as ListNode;
+
+  current = previousInside?.next as unknown as ListNode;
+  previous = current as unknown as ListNode;
+  let secondNode = current.next as unknown as ListNode;
+  counter = left + 1;
+  while (counter <= right) {
+    let next = secondNode.next;
+    secondNode.next = previous;
+    previous = { ...secondNode } as ListNode;
+    secondNode = { ...next } as ListNode;
+    counter++;
   }
-  return first as ListNode;
+  if (previousInside) {
+    previousInside.next = previous as unknown as ListNode;
+  }
+  current.next = nextInside;
+
+  return previousInside as ListNode;
 }
 
 function constructListNode(): ListNode {
@@ -63,17 +64,14 @@ function printList(head: ListNode): void {
   console.log(`printing linked list`);
   let currentNode: ListNode = head;
   while (currentNode) {
-    console.log(currentNode);
+    console.log(JSON.stringify(currentNode));
     currentNode = currentNode.next as ListNode;
   }
   console.log(`printing linked list end`);
 }
 function execute() {
-  console.log(`execute start`);
   const head = constructListNode();
-  console.log(`head initial`, JSON.stringify(head));
   const newHead = reverseBetween(head, 2, 4) as ListNode;
-  console.log(`new head :`, newHead);
   //print the list
   printList(newHead);
 }
