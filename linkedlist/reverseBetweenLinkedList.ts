@@ -11,54 +11,36 @@ Output: [5]
 import ListNode from "./list";
 function reverseBetween(head: ListNode, left: number, right: number): ListNode {
   let current: ListNode = head;
-  let previous: ListNode | null = null;
-  let previousInside: ListNode | null = null;
-  let nextInside: ListNode | null = null;
+  let start: ListNode = head;
   let counter = 1;
+  //get start and end nodes
+  while (counter < left) {
+    start = current;
+    current = current.next as unknown as ListNode;
+    counter++;
+  }
+  let previous: ListNode | null = null;
+  let tail = current;
+
   while (counter <= right) {
     let next = current.next;
-    if (counter === left) {
-      previousInside = previous as unknown as ListNode;
-    }
-    previous = { ...current } as unknown as ListNode;
-    current = { ...next } as unknown as ListNode;
-    if (counter === right) {
-      nextInside = next as unknown as ListNode;
-    }
+    current.next = previous;
+    previous = current;
+    current = next as unknown as ListNode;
     counter++;
   }
-  if(previousInside?.next){
-    current = previousInside.next as unknown as ListNode;
-  }
-  else{
-    current = head;
-  }
-  previous = current as unknown as ListNode;
-  let secondNode = current.next as unknown as ListNode;
-  counter = left + 1;
-  while (counter <= right) {
-    let next = secondNode.next;
-    secondNode.next = previous;
-    previous = { ...secondNode } as ListNode;
-    secondNode = { ...next } as ListNode;
-    counter++;
-  }
-  if (previousInside) {
-    previousInside.next = previous as unknown as ListNode;
-  }
-  else{
-    previousInside = previous;
-  }
-  current.next = nextInside;
+  start.next = previous;
+  tail.next = current;
 
-  return previousInside as ListNode;
+  return (left === 1 ? previous : head) as unknown as ListNode;
 }
 
 function constructListNode(): ListNode {
-  // const l5 = new ListNode(5, null);
-  // const l4 = new ListNode(4, l5);
-  // const l3 = new ListNode(3, l4);
-  const l2 = new ListNode(2, null);
+  const l6 = new ListNode(6, null);
+  const l5 = new ListNode(5, l6);
+  const l4 = new ListNode(4, l5);
+  const l3 = new ListNode(3, l4);
+  const l2 = new ListNode(2, l3);
   const l1 = new ListNode(1, l2);
   return l1;
 }
@@ -73,7 +55,7 @@ function printList(head: ListNode): void {
 }
 function execute() {
   const head = constructListNode();
-  const newHead = reverseBetween(head, 1, 2) as ListNode;
+  const newHead = reverseBetween(head, 3, 5) as ListNode;
   //print the list
   printList(newHead);
 }
