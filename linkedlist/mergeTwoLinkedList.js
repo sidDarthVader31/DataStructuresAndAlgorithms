@@ -35,16 +35,18 @@ Output: [0]
 var mergeTwoLists = function(list1, list2) {
   let cur1 = list1;
   let cur2 = list2;
-
-  while(cur1 && cur2){
-    let next1 = cur1.next;
-    let nex2 = cur2.next;
-    if(cur2.val<=cur2.val){
-      cur2.next = cur1;
-
+  let final =list2;
+  while(cur1 || cur2){
+    if(cur2.val<=cur1.val ){
+     // cur2.next = cur1;
+     // cur1 = cur1.next;
+      final.next = cur1;
+      cur1 = cur1.next;
     }
-    else if(cur2.val > cur1.val){
-      cur1.next = cur2;
+    else if (cur1.val  <  cur2.val){
+      final.next = cur1;
+      cur2 = cur2.next;
     }
+    }
+  return final;
   }
-};
