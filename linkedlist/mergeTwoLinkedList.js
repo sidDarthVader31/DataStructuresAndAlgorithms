@@ -1,4 +1,3 @@
-
 /**
 * You are given the heads of two sorted linked lists list1 and list2.
 
@@ -32,21 +31,29 @@ Output: [0]
  * @param {ListNode} list2
  * @return {ListNode}
  */
-var mergeTwoLists = function(list1, list2) {
-  let cur1 = list1;
-  let cur2 = list2;
-  let final =list2;
-  while(cur1 || cur2){
-    if(cur2.val<=cur1.val ){
-     // cur2.next = cur1;
-     // cur1 = cur1.next;
+var mergeTwoLists = function (list1, list2) {
+  let cur1 = null;
+  let cur2 = null;
+  let final = null;
+  if (cur1.val <= cur2.val) {
+    final = list1;
+    cur1 = cur1.next;
+    cur2 = list2;
+  } else {
+    final = list2;
+    cur1 = list1;
+    cur2 = list2.next;
+  }
+  while (cur1 || cur2) {
+    if (cur2.val <= cur1.val) {
+      // cur2.next = cur1;
+      // cur1 = cur1.next;
       final.next = cur1;
       cur1 = cur1.next;
-    }
-    else if (cur1.val  <  cur2.val){
+    } else if (cur1.val < cur2.val) {
       final.next = cur1;
       cur2 = cur2.next;
     }
-    }
-  return final;
   }
+  return final;
+};
