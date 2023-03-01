@@ -25,15 +25,23 @@ rotate 2 steps to the right: [3,99,-1,-100]
  * @return {void} Do not return anything, modify nums in-place instead.
  */
 var rotate = function (nums, k) {
-  let output = [];
-  let length = -1;
-  for (let i = 0; i < nums.length; i++) {
-    if (i + k > length - 1) {
-      output[length - 1 - (i + k)] = nums[i];
+  let output = [...nums];
+  let length = output.length;
+  if (length < 2) {
+    return;
+  }
+  //find the optimal value of k
+  if (k >= length) {
+    k = k % length;
+  }
+  for (let i = 0; i < length; i++) {
+    if (i + k >= length) {
+      nums[i + k - length] = output[i];
     } else {
-      output[i + k] = nums[i];
+      nums[i + k] = output[i];
     }
   }
 
-  return output;
+  console.log("##############", nums);
 };
+console.log(rotate([1, 2, 3, 4, 5, 6, 7], 3));
