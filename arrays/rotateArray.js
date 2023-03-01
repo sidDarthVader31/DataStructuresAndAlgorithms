@@ -44,4 +44,42 @@ var rotate = function (nums, k) {
 
   console.log("##############", nums);
 };
+/**
+ * Optimized with O(1) space complexity
+ * @param {number[]} nums
+ * @param {numer} k;
+ * @returns {void}
+ *
+ * **/
+const rotateOptimized = function (nums, k) {
+  const length = nums.length;
+  if (length < 2) {
+    return;
+  }
+  //find optimized value of k
+  if (k >= length) {
+    k = k % length;
+  }
+  const firstElement = nums[0];
+  let left = 0;
+  let right = left + k;
+
+  while (left < length) {
+    if (left > 0 && nums[left] == firstElement) {
+      console.log(`breaking for left:${left}`);
+      break;
+    }
+    const rthValue = nums[right];
+    let lMinus1thIndex = left == 0 ? length - 1 : left - 1;
+    const lMinus1ThValue = nums[lMinus1thIndex];
+    nums[right] = nums[left];
+    nums[lMinus1thIndex] = rthValue;
+    nums[left] = lMinus1ThValue;
+    left++;
+    //calculate rth value
+    right = right == length - 1 ? 0 : right + 1;
+  }
+  console.log(`nums:optimized:`, nums);
+};
 console.log(rotate([1, 2, 3, 4, 5, 6, 7], 3));
+console.log(rotateOptimized([1, 2, 3, 4, 5, 6, 7], 3));
