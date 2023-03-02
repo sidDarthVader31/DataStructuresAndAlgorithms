@@ -53,33 +53,25 @@ var rotate = function (nums, k) {
  * **/
 const rotateOptimized = function (nums, k) {
   const length = nums.length;
-  if (length < 2) {
-    return;
-  }
   //find optimized value of k
   if (k >= length) {
     k = k % length;
   }
-  const firstElement = nums[0];
-  let left = 0;
-  let right = left + k;
-
-  while (left < length) {
-    if (left > 0 && nums[left] == firstElement) {
-      console.log(`breaking for left:${left}`);
-      break;
-    }
-    const rthValue = nums[right];
-    let lMinus1thIndex = left == 0 ? length - 1 : left - 1;
-    const lMinus1ThValue = nums[lMinus1thIndex];
-    nums[right] = nums[left];
-    nums[lMinus1thIndex] = rthValue;
-    nums[left] = lMinus1ThValue;
-    left++;
-    //calculate rth value
-    right = right == length - 1 ? 0 : right + 1;
+  rotateArray(nums, 0, length - 1);
+  rotateArray(nums, 0, k - 1);
+  rotateArray(nums, l, length - 1);
+};
+/**
+ * @param{number[]} array
+ * @param {number} k
+ * @returns {number[]}array
+ * */
+const rotateArray = (array, left, right) => {
+  while (left <= right) {
+    let temp = array[left];
+    array[left] = array[right];
+    array[right] = temp;
   }
-  console.log(`nums:optimized:`, nums);
 };
 console.log(rotate([1, 2, 3, 4, 5, 6, 7], 3));
 console.log(rotateOptimized([1, 2, 3, 4, 5, 6, 7], 3));
