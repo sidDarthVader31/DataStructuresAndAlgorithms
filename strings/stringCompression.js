@@ -66,8 +66,17 @@ var compress = function (chars) {
   }
   chars[left] = charToCompare;
   if (length > 0) {
-    chars[left + 1] = `${length + 1}`;
+    const stringLength = `${length + 1}`;
+    const digitCount = stringLength.length;
+    for (let i = 1; i <= digitCount; i++) {
+      chars[left + i] = stringLength.charAt(i - 1);
+    }
+    left = left + digitCount + 1;
+    chars.length = left;
+  } else {
+    chars.length = left + 1;
   }
-  chars.length = left + 2;
   return chars.length;
 };
+
+console.log(compress(["a", "b", "c"]));
