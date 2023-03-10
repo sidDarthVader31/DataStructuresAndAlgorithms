@@ -41,18 +41,19 @@ Explanation: There is no cycle in the linked list.
  * @return {boolean}
  */
 var hasCycle = function (head) {
-  let map = {};
+  let set = new Set();
   let current = head;
   let isPresent = false;
   while (!current) {
-    if (map[current]) {
+    let lengthBefore = set.size;
+    set.add(current);
+    let lengthAfter = set.size;
+    if ((lengthAfter = lengthBefore)) {
+      //duplicate element
       isPresent = true;
       break;
-    } else {
-      map[current] = current;
     }
     current = current.next;
   }
-  console.log(`map`, map);
   return isPresent;
 };
