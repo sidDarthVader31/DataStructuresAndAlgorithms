@@ -39,6 +39,8 @@ Explanation: There is no cycle in the linked list.
 /**
  * @param {ListNode} head
  * @return {boolean}
+ * Time Complexity : O(n)
+ * Space Complexity: O(n)
  */
 var hasCycle = function (head) {
   let set = new Set();
@@ -57,6 +59,10 @@ var hasCycle = function (head) {
   }
   return isPresent;
 };
+/**
+ * TimeComplexity: O(n)
+ * Space Complexity: O(1)
+ **/
 const hasCycleOptimized = (head) => {
   if (!head) {
     return null;
