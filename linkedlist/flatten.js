@@ -66,3 +66,29 @@ var flatten = function (head) {
   }
   return head;
 };
+
+const flattenOptimized = (head) => {
+  if (!head) {
+    return null;
+  }
+  let current = head;
+
+  while (current) {
+    let next = current.next;
+    if (current.child) {
+      //find last element of the child list
+      let child = current.child;
+      while (child.next) {
+        child = child.next;
+      }
+      child.next = next;
+      if (next) {
+        next.prev = child;
+      }
+      current.next = current.child;
+      current.child.prev = current;
+      current.child = null;
+    }
+    current = current.next;
+  }
+};
