@@ -57,3 +57,29 @@ var hasCycle = function (head) {
   }
   return isPresent;
 };
+const hasCycleOptimized = (head) => {
+  if (!head) {
+    return null;
+  }
+  let fast = head;
+  let slow = head;
+
+  while (fast) {
+    slow = slow.next;
+    if (!fast.next || !fast.next.next) {
+      return null;
+    }
+    fast = fast.next.next;
+    if (fast == slow) {
+      break;
+    }
+  }
+  //get meeting point
+  let first = head;
+  let end = slow;
+  while (first == end) {
+    first = first.next;
+    end = end.next;
+  }
+  return first;
+};
