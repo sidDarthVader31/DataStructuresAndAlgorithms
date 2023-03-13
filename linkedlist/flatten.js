@@ -45,9 +45,6 @@ var flatten = function (head) {
   if (!head) {
     return null;
   }
-  if (!head.next) {
-    return head;
-  }
   let current = head;
 
   while (current) {
