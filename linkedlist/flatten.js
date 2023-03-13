@@ -41,4 +41,31 @@ Explanation: There could be empty list in the input.
  * @param {Node} head
  * @return {Node}
  */
-var flatten = function (head) {};
+var flatten = function (head) {
+  if (!head) {
+    return null;
+  }
+  if (!head.next) {
+    return head;
+  }
+  let current = head;
+
+  while (current) {
+    let next = current.next;
+    if (current.child) {
+      let flatList = flatten(current.child);
+      current.next = flatList;
+      flatList.prev = current;
+      //assign last element of flatList to next
+      while (flatlist.next) {
+        // to avoid this loop we can use another function for recursion that returns head and tail
+        flatList = flatList.next;
+      }
+      flatList.next = next;
+      next.prev = flatList;
+      current.child = null;
+    }
+    current = current.next;
+  }
+  return head;
+};
