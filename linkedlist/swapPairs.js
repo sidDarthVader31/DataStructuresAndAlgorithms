@@ -20,7 +20,7 @@ Output: [1]
  * function ListNode(val, next) {
  *     this.val = (val===undefined ? 0 : val)
  *     this.next = (next===undefined ? null : next)
- * }
+ *
  */
 /**
  * @param {ListNode} head
@@ -31,13 +31,27 @@ var swapPairs = function (head) {
     return head;
   }
   let current = head.next;
+  let answer = current;
   let prev = head;
-  while (current.next) {
+  let toSwap = null;
+  while (current) {
     let next = current.next;
-    let temp = prev;
+    if (!toSwap) {
+      toSwap = current;
+    } else {
+      toSwap.next = current;
+    }
+
+    //swap nodes;
     prev.next = next;
     current.next = prev;
+
+    toSwap = prev;
+    prev = next;
+    if (!next) {
+      break;
+    }
     current = next.next;
   }
-  return head;
+  return answer;
 };
