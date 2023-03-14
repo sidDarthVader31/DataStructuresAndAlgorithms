@@ -70,3 +70,32 @@ var addTwoNumbers = function (l1, l2) {
     }, null);
   return head;
 };
+
+
+const addTwoNumbersOptimized=(l1,l2)=>{
+  let sum =0;
+  let carry =0;
+  let prev = null;
+  while(l1|| l2){
+    if(l1){
+      sum = sum + l1.val;
+    }
+    if(l2){
+      sum =sum2 + l2.val;
+    }
+    sum = sum +carry;
+    if(sum >0){
+      carry = 1;
+      sum = sum %10;
+    }
+    Listnode node = new ListNode();
+    node.val = sum;
+    if(prev){
+      prev.next = node;
+    }
+    else{
+      prev = node;
+    }
+  }
+  return prev;
+}
