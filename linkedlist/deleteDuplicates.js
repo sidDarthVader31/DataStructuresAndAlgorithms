@@ -22,49 +22,44 @@ Output: [2,3]
  * @param {ListNode} head
  * @return {ListNode}
  */
-var deleteDuplicates = function(head) {
-  if(!head || !head.next){
+var deleteDuplicates = function (head) {
+  if (!head || !head.next) {
     return head;
   }
-
-  let val = head.val;
+  //get map of number of occurences of all the elements
+  let map = {};
   let current = head;
-  let map ={};
-  if(head.val == head.next.val){
-  while(current){
-    if(current.val != val){
-      break;
+  while (current) {
+    let val = current.val;
+    if (map[`${val}`]) {
+      map[`${val}`] = map[`${val}`] + 1;
+    } else {
+      map[`${val}`] = 1;
     }
-    current = current.val;
   }
-  }
-  let newHead = current;
-  while(current){
-    if(map[`${current.val}`]){
-      map[`${current.val}`] = map[${current.val}] +1;
-    }
-    else{
-      map[`${current.val}`] = 1;
-    }
-    current = current.next;
-  }
-
-  //remove elements 
-  current = newHead;
-  while(current){
+  let prev = null;
+  let current = head;
+  while (current) {
     let next = current.next;
-    if(map[`${current.val}`]){
-      //delete this element 
-    //check if first element 
-      if(current == head){
-        head = head?.next || null;
-      }
+    if (map[`${current.val}`] > 1) {
+      //duplicate element, remove this node
       current.next = null;
-      if(prev){
+      //shift head if first element
+      if (!prev) {
+        head = next;
+      } else {
         prev.next = next;
-      } 
+      }
+    } else {
+      prev = current;
     }
-    current = current.next;
+    current = next;
   }
-  return newHead;
-}
+  return head;
+};
+
+const removeDuplicatesOptimized = (head) => {
+  if (!head || !head.next) {
+    return head;
+  }
+};
