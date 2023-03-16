@@ -55,6 +55,10 @@ var deleteDuplicates = function(head) {
     let next = current.next;
     if(map[`${current.val}`]){
       //delete this element 
+    //check if first element 
+      if(current == head){
+        head = head?.next || null;
+      }
       current.next = null;
       if(prev){
         prev.next = next;
