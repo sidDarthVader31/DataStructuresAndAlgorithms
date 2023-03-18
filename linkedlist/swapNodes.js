@@ -29,4 +29,49 @@ The number of nodes in the list is n.
  * @param {number} k
  * @return {ListNode}
  */
-var swapNodes = function (head, k) {};
+var swapNodes = function (head, k) {
+  if (!head) {
+    return null;
+  }
+  let current = head;
+  //get length of list
+  let length = 0;
+  while (current) {
+    current = current.next;
+    length++;
+  }
+  let kthNode = length - k + 1;
+  //ensure that kth node is always comes before
+  if (kthNode < k) {
+    let temp = k;
+    k = kthNode;
+    kthNode = temp;
+  }
+  let prev = null;
+  let prevK = null;
+  let kNode = null;
+
+  current = head;
+  let counter = 0;
+  while (current) {
+    let next = current.next;
+    counter++;
+    if (counter == k) {
+      prevK = prev;
+      kNode = current;
+    } else if (counter == kthNode) {
+      if (prevK) {
+        prevK.next = current;
+      } else {
+        head = current;
+      }
+      current.next = kNode.next;
+      prev.next = kNode;
+      kNode.next = next;
+      break;
+    }
+    prev = current;
+    current = next;
+  }
+  return head;
+};
