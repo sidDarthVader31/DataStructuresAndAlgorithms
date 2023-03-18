@@ -50,7 +50,7 @@ var swapNodes = function (head, k) {
   let prev = null;
   let prevK = null;
   let kNode = null;
-
+  let kNext = null;
   current = head;
   let counter = 0;
   while (current) {
@@ -59,14 +59,20 @@ var swapNodes = function (head, k) {
     if (counter == k) {
       prevK = prev;
       kNode = current;
+      kNext = null;
     } else if (counter == kthNode) {
       if (prevK) {
         prevK.next = current;
       } else {
         head = current;
       }
-      current.next = kNode.next;
-      prev.next = kNode;
+      if (current == kNext) {
+        prev.next = next;
+        current.next = prev;
+      } else {
+        current.next = kNext;
+        prev.next = kNode;
+      }
       kNode.next = next;
       break;
     }
