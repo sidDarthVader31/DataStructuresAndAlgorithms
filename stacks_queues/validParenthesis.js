@@ -23,34 +23,27 @@ Output: false
  * @return {boolean}
  */
 var isValid = function (s) {
-  let roundBracketOpen = 0;
-  let roundBracketClose = 0;
-  let curlyBracketOpen = 0;
-  let curlyBracketClose = 0;
-  let ankleBracketOpen = 0;
-  let ankleBracketClose = 0;
-
+  let stack = [];
   for (let i = 0; i < s.length; i++) {
     let ch = s.charAt(i);
-    if (s == "(") {
-      roundBracketOpen++;
-    } else if (s == "{") {
-      curlyBracketOpen++;
-    } else if (s == "[") {
-      ankleBracketOpen++;
-    } else if (s == ")") {
-      roundBracketClose++;
-    } else if (s == "}") {
-      curlyBracketClose++;
-    } else if (s == "]") {
-      ankleBracketClose++;
-    } else {
-      return "wrong input";
+    if(ch == '(' || ch == '{'|| ch == '['){
+      stack.push(ch);
+    }
+    else if ( ch == ')'){
+      //check last bracket if its same or not 
+      if stack[stack.length-1] == '(';
+      stack.pop();
+    }
+    else if ( ch == '}'){
+    if(stack[stack.length-1] == '{'){
+        stack.pop();
+      }
+    }
+    else if ( ch == ']'){
+      stack[stack.length-1] == '['{
+        stack.pop;
+      }
     }
   }
-  return (
-    roundBracketOpen == roundBracketClose &&
-    curlyBracketOpen == curlyBracketClose &&
-    ankleBracketOpen == ankleBracketClose
-  );
-};
+  return stack.length == 0;
+}
