@@ -23,23 +23,22 @@ Output: false
  * @return {boolean}
  */
 var isValid = function (s) {
+  if (s.length <= 1) {
+    return false;
+  }
   let stack = [];
   for (let i = 0; i < s.length; i++) {
     let ch = s.charAt(i);
     if (ch == "(" || ch == "{" || ch == "[") {
       stack.push(ch);
-    } else if (ch == ")") {
-      //check last bracket if its same or not
-      if (stack[stack.length - 1] == "(");
+    } else if (ch == ")" && stack[stack.length - 1] == "(") {
       stack.pop();
-    } else if (ch == "}") {
-      if (stack[stack.length - 1] == "{") {
-        stack.pop();
-      }
-    } else if (ch == "]") {
-      if (stack[stack.length - 1] == "[") {
-        stack.pop;
-      }
+    } else if (ch == "}" && stack[stack.length - 1] == "{") {
+      stack.pop();
+    } else if (ch == "]" && stack[stack.length - 1] == "[") {
+      stack.pop();
+    } else {
+      return false;
     }
   }
   return stack.length == 0;
