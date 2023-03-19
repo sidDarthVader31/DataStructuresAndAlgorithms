@@ -26,24 +26,21 @@ var isValid = function (s) {
   let stack = [];
   for (let i = 0; i < s.length; i++) {
     let ch = s.charAt(i);
-    if(ch == '(' || ch == '{'|| ch == '['){
+    if (ch == "(" || ch == "{" || ch == "[") {
       stack.push(ch);
-    }
-    else if ( ch == ')'){
-      //check last bracket if its same or not 
-      if stack[stack.length-1] == '(';
+    } else if (ch == ")") {
+      //check last bracket if its same or not
+      if (stack[stack.length - 1] == "(");
       stack.pop();
-    }
-    else if ( ch == '}'){
-    if(stack[stack.length-1] == '{'){
+    } else if (ch == "}") {
+      if (stack[stack.length - 1] == "{") {
         stack.pop();
       }
-    }
-    else if ( ch == ']'){
-      stack[stack.length-1] == '['{
+    } else if (ch == "]") {
+      if (stack[stack.length - 1] == "[") {
         stack.pop;
       }
     }
   }
   return stack.length == 0;
-}
+};
