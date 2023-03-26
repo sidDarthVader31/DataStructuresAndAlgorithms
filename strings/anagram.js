@@ -21,40 +21,39 @@ Output: false
  * @param {string} t
  * @return {boolean}
  */
-var isAnagram = function(s, t) {
-    if(s.length!= t.length){
-        return false;
+var isAnagram = function (s, t) {
+  if (s.length != t.length) {
+    return false;
+  }
+  let map = {};
+  let isAnagramFlag = true;
+  for (let i = 0; i < s.length; i++) {
+    const char = s.charAt(i);
+    if (!map[char]) {
+      map[char] = 1;
+    } else {
+      map[char] = map[char] + 1;
     }
-    let map={};
-    let isAnagramFlag=true;
-    for(let i=0;i<s.length;i++){
-        const char= s.charAt(i);
-        if(!map[char]){
-            map[char]=1
-        }else{
-            map[char]=map[char]+1;
-        }
+  }
+  let tmap = {};
+  for (let i = 0; i < t.length; i++) {
+    const char = t.charAt(i);
+    if (!tmap[char]) {
+      tmap[char] = 1;
+    } else {
+      tmap[char] = tmap[char] + 1;
     }
-    let tmap={};
-    for(let i=0;i<t.length;i++){
-        const char= t.charAt(i);
-        if(!tmap[char]){
-            tmap[char]=1;
-        }else{
-            tmap[char]=tmap[char]+1;
-        }
-    }
+  }
 
-    for (const key of Object.keys(map)){
-        if(!tmap[key]){
-            isAnagramFlag=false;
-            break;
-        }
-        else if(tmap[key] && tmap[key]!= map[key]){
-            isAnagramFlag=false;
-            break
-        }
+  for (const key of Object.keys(map)) {
+    if (!tmap[key]) {
+      isAnagramFlag = false;
+      break;
+    } else if (tmap[key] && tmap[key] != map[key]) {
+      isAnagramFlag = false;
+      break;
     }
-    return isAnagramFlag;
+  }
+  return isAnagramFlag;
 };
-console.log(isAnagram("rat","car"))
+console.log(isAnagram("rat", "car"));

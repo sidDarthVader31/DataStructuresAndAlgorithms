@@ -1,4 +1,3 @@
-
 /**
  * Given two integer arrays nums1 and nums2, return an array of their intersection. Each element in the result must appear as many times as it shows in both arrays and you may return the result in any order.
 
@@ -25,30 +24,28 @@ Constraints:
  * @param {number[]} nums2
  * @return {number[]}
  */
-var intersect = function(nums1, nums2) {
-    let map={};
-    let finalSum=[];
-    for(let i=0;i<nums2.length;i++){
-        if(map[`${nums2[i]}`]){
-            map[`${nums2[i]}`]= map[`${nums2[i]}`]+1;
-        }
-        else{
-            map[`${nums2[i]}`]=1;
-        }
+var intersect = function (nums1, nums2) {
+  let map = {};
+  let finalSum = [];
+  for (let i = 0; i < nums2.length; i++) {
+    if (map[`${nums2[i]}`]) {
+      map[`${nums2[i]}`] = map[`${nums2[i]}`] + 1;
+    } else {
+      map[`${nums2[i]}`] = 1;
     }
-    let pushCount={};
-    for(let i=0;i<nums1.length;i++){
-        if(map[`${nums1[i]}`]){
-            if(!pushCount[`${nums1[i]}`]){
-                console.log(`pushCount`)
-                pushCount[`${nums1[i]}`]=0;
-            }
-            if( pushCount[`${nums1[i]}`]<map[`${nums1[i]}`]){
-                finalSum.push(nums1[i]);
-                pushCount[`${nums1[i]}`]=pushCount[`${nums1[i]}`]+1;
-            }
-        }
+  }
+  let pushCount = {};
+  for (let i = 0; i < nums1.length; i++) {
+    if (map[`${nums1[i]}`]) {
+      if (!pushCount[`${nums1[i]}`]) {
+        pushCount[`${nums1[i]}`] = 0;
+      }
+      if (pushCount[`${nums1[i]}`] < map[`${nums1[i]}`]) {
+        finalSum.push(nums1[i]);
+        pushCount[`${nums1[i]}`] = pushCount[`${nums1[i]}`] + 1;
+      }
     }
-    return finalSum;
+  }
+  return finalSum;
 };
-console.log(intersect([1,2,2,1],[2]))
+console.log(intersect([1, 2, 2, 1], [2]));
