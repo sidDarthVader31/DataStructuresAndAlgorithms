@@ -47,3 +47,23 @@ const partition = (arr, left, right) => {
   }
   return i;
 };
+const findKthLargestOptimized=(nums, k) =>{
+  return quickSelect(nums,1 nums.length, nums.length - k);
+}
+
+
+const quickSelect=(arr, left, right,k )=>{
+  if(left <= right){
+    let q = partition(arr, left, right);
+    if(q == k){
+      return arr[k];
+    }
+    else if (q > k){
+      return quickSelect(arr, left, q, k);
+    }
+    else {
+      return quickSelect(arr, q+1, right, k);
+    }
+  }
+}
+
