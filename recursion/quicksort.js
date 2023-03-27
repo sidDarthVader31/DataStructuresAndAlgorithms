@@ -7,15 +7,14 @@
  * @param{number[]}arr
  **/
 const sort = (arr) => {
-  return quickSort(arr, 1, arr.length);
+  quickSort(arr, 1, arr.length);
+  console.log(`sorted arr`, arr);
 };
 const quickSort = (arr, left, right) => {
   if (left < right) {
     let q = partition(arr, left, right);
-    quickSort(arr, left, q);
+    quickSort(arr, left, q - 1);
     quickSort(arr, q + 1, right);
-  } else {
-    return arr;
   }
 };
 const partition = (arr, left, right) => {
@@ -30,8 +29,6 @@ const partition = (arr, left, right) => {
       i = i + 1;
     }
   }
-  console.log(`array`, arr);
-  return i - 1;
+  return i;
 };
-
-console.log(`sortL`, sort([5, 3, 1, 4, 6, 2]));
+sort([2, 4, 1, 3, 5, 8, 9, 6, 7]);
