@@ -24,5 +24,35 @@ Output: [-1,-1]
  * @return {number[]}
  */
 var searchRange = function (nums, target) {
-  let output;
+  let output = [-1, -1];
+  if (nums.length == 0) {
+    return output;
+  }
+
+  let left = 0;
+  let right = nums.length - 1;
+  let pos = -1;
+  while (left <= right) {
+    let mid = Math.floor((left + right) / 2);
+    if (nums[mid] == target) {
+      pos = mid;
+      break;
+    } else if (nums[mid] < target) {
+      left = mid + 1;
+    } else {
+      right = mid - 1;
+    }
+  }
+  console.log(`position`, pos);
+  if (pos == -1) {
+    return output;
+  } else if (pos != -1 && nums[pos + 1] == target) {
+    return [pos, pos + 1];
+  } else if (pos != -1 && nums[pos - 1] == target) {
+    return [pos - 1, pos];
+  } else {
+    return [-1, -1];
+  }
 };
+
+console.log(searchRange([5, 7, 7, 8, 8, 10], 6));
