@@ -3,20 +3,22 @@
  * @return {number[]}
  */
 var plusOne = function (digits) {
-  let carry = 0;
-  let index = digits.length - 1;
-  console.log(`index`, index);
-  while (carry > 0 || index >= 0) {
-    let sum = digits[index] + 1;
+  let carry = 1;
+  let index = 0;
+  let sum = 10;
+  const reverseDigits = digits.reverse();
+  while (carry > 0) {
+    let sum = (reverseDigits[index] || 0) + 1;
     if (sum > 9) {
       sum = sum % 10;
+      reverseDigits[index] = sum;
       carry = 1;
-      index--;
-      digits[index] = sum;
+      index++;
     } else {
-      digits[index] = sum;
+      reverseDigits[index] = sum;
       break;
     }
   }
-  return digits;
+
+  return reverseDigits.reverse();
 };
