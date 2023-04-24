@@ -46,11 +46,6 @@ var searchRange = function (nums, target) {
 const searchRangeOptimized = (nums, target) => {
   let left = 0;
   let right = nums.length - 1;
-  let count = 0;
-  let leftPosition = -1;
-  let rightPosition = -1;
-  let position = -1;
-
   return binarySearch(nums, left, right, target, -1, -1);
 };
 
@@ -64,10 +59,6 @@ const binarySearch = (
 ) => {
   let leftPos = leftPostion;
   let rightPos = rightPosition;
-  let result = [leftPos, rightPos];
-  console.log(
-    `received::left:${left}, right:${right}, leftPosition:${leftPos}, rightposition:${rightPos}`
-  );
   if (right >= left) {
     let mid = Math.floor((left + right) / 2);
     if (nums[mid] == target && leftPostion == -1) {
@@ -96,10 +87,6 @@ const binarySearch = (
           leftPos,
           rightPos
         );
-        console.log(`result for mid:${mid}::and right:${right} `, [
-          leftPos,
-          rightPos,
-        ]);
         return binarySearch(nums, mid + 1, right, target, leftPos, rightPos);
       } else if (mid > rightPosition) {
         rightPos = mid;
@@ -121,5 +108,4 @@ const binarySearch = (
   }
   return [leftPos, rightPos];
 };
-//console.log(`binary search`, binarySearch([5, 7, 7, 8, 9, 10], 0, 5,8));
 console.log(`result:::`, searchRangeOptimized([5, 7, 7, 8, 8, 10], 8));
