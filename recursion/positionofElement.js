@@ -64,6 +64,10 @@ const binarySearch = (
 ) => {
   let leftPos = leftPostion;
   let rightPos = rightPosition;
+  let result = [leftPos, rightPos];
+  console.log(
+    `received::left:${left}, right:${right}, leftPosition:${leftPos}, rightposition:${rightPos}`
+  );
   if (right >= left) {
     let mid = Math.floor((left + right) / 2);
     if (nums[mid] == target && leftPostion == -1) {
@@ -71,18 +75,43 @@ const binarySearch = (
 
       leftPos = mid;
       rightPos = mid;
-      binarySearch(nums, left, mid - 1, target, mid, mid);
-      return binarySearch(nums, mid + 1, right, target, mid, mid);
+      [leftPos, rightPos] = binarySearch(
+        nums,
+        left,
+        mid - 1,
+        target,
+        leftPos,
+        rightPos
+      );
+      return binarySearch(nums, mid + 1, right, target, leftPos, rightPos);
     } else if (nums[mid] == target && leftPostion > -1) {
       //target has been found before
       if (mid < leftPostion) {
         leftPos = mid;
-        binarySearch(nums, left, mid - 1, target, mid, rightPosition);
-        return binarySearch(nums, mid + 1, right, target, mid, rightPosition);
+        [leftPos, rightPos] = binarySearch(
+          nums,
+          left,
+          mid - 1,
+          target,
+          leftPos,
+          rightPos
+        );
+        console.log(`result for mid:${mid}::and right:${right} `, [
+          leftPos,
+          rightPos,
+        ]);
+        return binarySearch(nums, mid + 1, right, target, leftPos, rightPos);
       } else if (mid > rightPosition) {
         rightPos = mid;
-        binarySearch(nums, left, mid - 1, target, leftPostion, mid);
-        return binarySearch(nums, mid + 1, right, target, leftPostion, mid);
+        [leftPos, rightPos] = binarySearch(
+          nums,
+          left,
+          mid - 1,
+          target,
+          leftPos,
+          rightPos
+        );
+        return binarySearch(nums, mid + 1, right, target, leftPos, rightPos);
       }
     } else if (nums[mid] < target) {
       return binarySearch(nums, mid + 1, right, target, leftPos, rightPos);
