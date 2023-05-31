@@ -1,4 +1,7 @@
-const inOrderTraversalRecursive = (Node: root){
+/**
+* Node: {left: Node, right: Node, value: any}
+ **/ 
+const inOrderTraversalRecursive = (root: Node){
   if(root!= null){
     inOrderTraversalRecursive(root.left);
     console.log(root.value);
@@ -6,7 +9,7 @@ const inOrderTraversalRecursive = (Node: root){
   }
 }
 
-const inOrderTraversalIterative = (Node: root){
+const inOrderTraversalIterative = (root: Node){
   let response = [];
   let stack = [];
   let currentNode = root;

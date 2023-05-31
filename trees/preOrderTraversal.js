@@ -3,7 +3,7 @@
 /**
  *Node : {left: Node, right: Node, value: any}
  **/ 
-const preOrderTraversalRecursive=(Node: root){
+const preOrderTraversalRecursive=(root: Node){
   if(root!= null){
     console.log(root.value);
     preOrderTraversalRecursive(root.left);
@@ -11,7 +11,7 @@ const preOrderTraversalRecursive=(Node: root){
   }
 }
 
-const preOrderTraversalIterative=(Node: root){
+const preOrderTraversalIterative=(root: Node){
   let response = [];
   if(root == null){
     return response;
