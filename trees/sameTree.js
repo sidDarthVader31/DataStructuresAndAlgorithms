@@ -60,3 +60,31 @@ const getBinaryTree = (root) => {
     ];
   }
 };
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} p
+ * @param {TreeNode} q
+ * @return {boolean}
+ */
+const isSameTreeOptimized = function (p, q) {
+  if (p == null && q == null) {
+    return true;
+  } else if (p != null && q == null) {
+    return false;
+  } else if (p == null && q != null) {
+    return false;
+  } else if (p != null && q != null && p.val != q.val) {
+    return false;
+  } else {
+    let leftResult = isSameTreeOptimized(p.left, q.left);
+    let rightResult = isSameTreeOptimized(p.right, q.right);
+    return leftResult && rightResult;
+  }
+};
