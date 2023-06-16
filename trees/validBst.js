@@ -54,3 +54,32 @@ const recursive = (root) => {
     return false;
   }
 };
+
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {boolean}
+ */
+var isValidBSTOptimized = function (root) {
+  return recursiveOptimizied(root, null, null);
+};
+
+const recursiveOptimizied = (root, min, max) => {
+  if (!root) {
+    return true;
+  }
+  if (min && root.val <= min.val) {
+    return false;
+  }
+  if (max && root.val >= max.val) {
+    return false;
+  }
+  return recursive(root.left, min, root) && recursive(root.right, root, max);
+};
