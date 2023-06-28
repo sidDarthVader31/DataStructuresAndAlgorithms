@@ -15,10 +15,10 @@ const levelOrderTraversal = (root) => {
     if (currentNode) {
       currentLevel.push(currentNode.value);
       if (currentNode.left) {
-        queue.push(currentLevel.left);
+        queue.push(currentNode.left);
       }
       if (currentNode.right) {
-        queue.push(currentLevel.right);
+        queue.push(currentNode.right);
       }
     } else {
       result.push(currentLevel);
