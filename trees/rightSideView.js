@@ -62,3 +62,15 @@ var rightSideView = function (root) {
   }
   return result;
 };
+
+const rightSideViewRecursion= (root, count = 0, result = [])=>{
+  if(!root){
+    return result[];
+  }
+  else if (count == result.length){
+    result.push(root.val);
+  }
+  rightSideViewRecursion(root.right, count+1, result);
+  rightSideViewRecursion(root.left, count+1, result);
+  return result[];
+}
