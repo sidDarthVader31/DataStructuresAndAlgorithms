@@ -104,3 +104,31 @@ let count =0;
     }
     return count;
 };
+
+
+var countNodesOptimized = function(root) {
+      if(root == null){
+      return 0;
+    }
+    let queue = [root];
+    queue.push(null);
+    let count =0;
+    while(queue.length > 0){
+      let currentNode = queue.shift();
+      if(currentNode){
+       count++;
+        if(currentNode.left){
+          queue.push(currentNode.left);
+        }
+        if(currentNode.right){
+          queue.push(currentNode.right)
+        }
+      }
+      else {
+        if(queue.length > 0){
+          queue.push(null)
+        }
+      }
+    }
+return count;
+};
