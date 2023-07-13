@@ -49,6 +49,54 @@ var reverseVowels = function(s) {
   return s;
 };
 
+/**
+ * @param {string} s
+ * @return {string}
+ */
+var reverseVowelsOptimized = function(s) {
+  const vowel ={
+    'a':true,
+    'e': true,
+    'i': true,
+    'o': true,
+    'u': true,
+    'A':true,
+    'E': true,
+    'I': true,
+    'O': true,
+    'U': true
+  }
+
+  let left = 0;
+  let right = s.length-1;
+  let stringArray = s.split('');
+  while(left < right){
+    if(!vowel[stringArray[left]] && !vowel[stringArray[right]]){
+      left ++;
+      right--;
+    }
+    else if(!vowel[stringArray[left]] && vowel[stringArray[right]]){
+      left++;
+    }
+
+    else if (vowel[stringArray[left]] && !vowel[stringArray[right]]){
+      right --;
+    }
+    else{
+      let leftvowel = stringArray[left];
+      stringArray[left]= stringArray[right];
+      stringArray[right]= leftvowel;
+      left++;
+      right--;
+    }
+  }
+  const initialValue = ''
+  return stringArray.reduce(
+  (accumulator, currentValue) => accumulator + currentValue,
+  initialValue
+);
+};
+
 function setCharAt(str,index,chr) {
     if(index > str.length-1) return str;
     return str.substring(0,index) + chr + str.substring(index+1);
