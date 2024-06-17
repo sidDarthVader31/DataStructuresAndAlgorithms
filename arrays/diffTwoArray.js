@@ -17,7 +17,8 @@ For nums2, nums2[0] = 2 is present at index 1 of nums1, whereas nums2[1] = 4 and
 Example 2:
 
 Input: nums1 = [1,2,3,3], nums2 = [1,1,2,2]
-Output: [[3],[]]
+Output: [[3]
+n
 Explanation:
 For nums1, nums1[2] and nums1[3] are not present in nums2. Since nums1[2] == nums1[3], their value is only included once and answer[0] = [3].
 Every integer in nums2 is present in nums1. Therefore, answer[1] = [].
