@@ -47,7 +47,7 @@ var rotate = function (nums, k) {
 /**
  * Optimized with O(1) space complexity
  * @param {number[]} nums
- * @param {numer} k;
+ * @param {number} k;
  * @returns {void}
  *
  * **/
