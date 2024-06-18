@@ -52,3 +52,24 @@ var deleteMiddle = function(head) {
     }
     return head;
 };
+
+
+const optimizedSolution = (head)=>{
+  let prev = null;
+    let pointer = head;
+    let fastPointer = head.next;
+    if(!head.next){
+        return null
+    }
+    while(fastPointer){
+        prev = pointer;
+        pointer = pointer?.next;
+     
+        fastPointer = fastPointer?.next?.next;
+    }
+    if(prev){
+        prev.next = pointer.next;
+        pointer.next = null;
+    }
+    return head
+}
