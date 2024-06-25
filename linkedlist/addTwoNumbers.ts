@@ -81,21 +81,22 @@ const addTwoNumbersOptimized=(l1,l2)=>{
       sum = sum + l1.val;
     }
     if(l2){
-      sum =sum2 + l2.val;
+      sum =sum + l2.val;
     }
     sum = sum +carry;
-    if(sum >0){
+    if(sum >10){
       carry = 1;
       sum = sum %10;
     }
-    Listnode node = new ListNode();
-    node.val = sum;
+    let node = new ListNode(sum);
     if(prev){
       prev.next = node;
     }
     else{
       prev = node;
     }
+    l1 = l1.next;
+    l2 = l2.next;
   }
   return prev;
 }
