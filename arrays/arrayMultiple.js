@@ -54,10 +54,6 @@ const processWithoutDivisionOptimized = (array) => {
   for (let i = 1; i < array.length; i++) {
     leftArray.push(array[i - 1] * leftArray[i - 1]);
   }
-  // rightArray[array.length - 1] = 1;
-  //   for (let i = array.length - 2; i >= 0; i--) {
-  //     rightArray[i] = rightArray[i + 1] * array[i + 1];
-  //   }
 
   rightArray.push(1);
   for (let i = array.length - 2; i >= 0; i--) {

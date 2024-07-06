@@ -92,3 +92,28 @@ const flattenOptimized = (head) => {
     current = current.next;
   }
 };
+
+function flattenRecursion(head: _Node | null, lastNode?: _Node| null): _Node | null {
+    let current = head;
+    if(!head){
+        return null;
+    }
+    while(current.next){
+        let next = current.next;
+        if(!current.child){
+            current = next;
+        }
+        else{
+            let temp = flatten(current.child, next);
+            temp.prev = current;
+            current.next
+            current.child = null;
+            current = next;
+        }
+    }
+    if(lastNode){
+        lastNode.prev = current;
+        current.next = lastNode;
+    }
+    return head;
+};

@@ -21,7 +21,7 @@ Output: 3
 Explanation: There are 3 equal row and column pairs:
 - (Row 0, Column 0): [3,1,2,2]
 - (Row 2, Column 2): [2,4,2,2]
-- (Row 3, Column 2): [2,4,2,2]
+- (Row 3, Column 2): [2,4,2,2
  * link: https://leetcode.com/problems/equal-row-and-column-pairs/description/?envType=study-plan-v2&envId=leetcode-75
  * @param {number[][]} grid
  * @return {number}
