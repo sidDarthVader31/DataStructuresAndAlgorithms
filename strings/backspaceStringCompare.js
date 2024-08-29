@@ -41,4 +41,36 @@ var backspaceCompare = function (s, t) {
   return soutput== toutput;
 };
 
+/**
+* @param {string} s
+* @param {string} t
+* @return {boolean}
+*/
+var backspaceCompareBetterSolution = function(s, t) {
+   let s1 = [];
+   let t1 = [];
+
+   for(let i = 0;i < s.length;i++){
+       if(s.charAt(i) == '#'){
+           s1.pop();
+       }
+       else{
+           s1.push(s.charAt(i))
+       }
+   }
+   for(let i = 0;i < t.length;i++){
+       if(t.charAt(i) == '#'){
+           t1.pop();
+       }
+       else{
+           t1.push(t.charAt(i))
+       }
+   }
+   console.log(`s1::`, s1)
+   console.log(`t1:`, t1);
+   return s1.toString() === t1.toString();
+};
+
+
+
 console.log(backspaceCompare("a###b", "b"));
