@@ -53,3 +53,48 @@ var longestPalindrome = function (s) {
   }
   return largestPalindrome;
 };
+
+
+/**
+ * @param {string} s
+ * @return {string}
+ */
+var longestPalindrome_BruteForce = function(s) {
+    let left = 0;
+    let maxOutput = '';
+    let output = '';
+    for(let i = 0;i< s.length;i++){
+        let char = s.charAt(i);
+        for(let j = s.length-1;j >=i;j--){
+            if(s.charAt(j)!= char){
+                continue;
+            }
+            //check if palindrome
+            let substr = s.substring(i, j+1);
+            const isPalin = isPaindrome(substr);
+            if(isPalin && substr.length > maxOutput.length){
+                maxOutput = substr;
+            }
+        }
+    }
+    return maxOutput;
+
+
+    
+};
+
+const isPaindrome = (string) =>{
+    let left = 0;
+    let right = string.length-1;
+
+    while(left < right){
+        if(string.charAt(left)!= string.charAt(right)){
+            return false;
+        }
+        else{
+            left++;
+            right--
+        }
+    }
+    return true;
+}
