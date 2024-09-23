@@ -60,9 +60,7 @@ var longestPalindrome = function (s) {
  * @return {string}
  */
 var longestPalindrome_BruteForce = function(s) {
-    let left = 0;
     let maxOutput = '';
-    let output = '';
     for(let i = 0;i< s.length;i++){
         let char = s.charAt(i);
         for(let j = s.length-1;j >=i;j--){
