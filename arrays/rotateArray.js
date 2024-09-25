@@ -75,3 +75,25 @@ const rotateArray = (array, left, right) => {
 };
 console.log(rotate([1, 2, 3, 4, 5, 6, 7], 3));
 console.log(rotateOptimized([1, 2, 3, 4, 5, 6, 7], 3));
+
+
+
+
+
+/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {void} Do not return anything, modify nums in-place instead.
+ */
+var rotate = function(nums, k) {
+    let output = [...nums];
+    k = k % nums.length;
+    for(let i = 0;i< output.length;i++){
+        if((i+k) < output.length){
+            nums[i+k] = output[i]
+        }
+        else if (i+k - nums.length <=nums.length) {
+            nums[i+k - nums.length] = output[i]
+        }
+    }
+}
