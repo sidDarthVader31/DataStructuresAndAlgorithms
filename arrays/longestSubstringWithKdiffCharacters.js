@@ -10,7 +10,7 @@ longestSubstringWithKdistinct = (str, k) => {
     else{
       map[endChar] = map[endChar] + 1;
     }
-    //start slinding window 
+    //start sliding windo 
     while(Object.keys(map).length > k) {
       let leftChar = str.charAt(left);
       map[leftChar] = map[leftChar] - 1;
