@@ -63,30 +63,22 @@ const optimizedLargestSubstring = (s) => {
 console.log(optimizedLargestSubstring("tmmzuxt"));
 
 
+
 /**
  * @param {string} s
  * @return {number}
  */
-var lengthOfLongestSubstringWithSlidingWindow = function(s) {
-    let left  = 0;
-    let map = {} ;
-    let length = 0;
+var lengthOfLongestSubstring = function(s) {
+    let map = {};
+    let left = 0;
     let maxLength = 0;
-    for(let right = 0;right< s.length;right++){
-         map[`${s.charAt(right)}`] == 1;
-        while(!map[`${s.charAt(left)}`] && left < s.length){
-            map[`${s.charAt(left)}`] =  1
-            left++;
-           length++;
+    for(let right = 0;right < s.length; right ++){
+        let rightChar = s.charAt(right);
+        if(map[rightChar]!= undefined){
+            left = Math.max(left, map[rightChar] + 1);
         }
-        // console.log(`map:`, JSON.stringify(map));
-        // console.log(`maxLength:`, maxLength)
-        // console.log(`length:`, length)
-        maxLength = Math.max(maxLength, length);
-        length = 0;
-        map= {};
-        left = right+1;
- 
+        map[rightChar] = right;
+        maxLength = Math.max(maxLength, right-left + 1);
     }
-    return maxLength 
+    return maxLength;
 };
