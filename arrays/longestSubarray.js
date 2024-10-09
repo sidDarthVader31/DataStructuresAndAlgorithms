@@ -28,7 +28,6 @@ Explanation: You must delete one element.
 var longestSubarray = function(nums) {
     let maxLength = 0
     let left = 0;
-    let right = 0 ;
     let zeroCount = 0;
 
     for(let right =0;right< nums.length; right++){
@@ -43,5 +42,6 @@ var longestSubarray = function(nums) {
         }
         maxLength = Math.max(maxLength, right-left+1)
     }
-    return maxLength-1
+    return maxLength-1;
 };
+
